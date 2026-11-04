@@ -1,4 +1,5 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/base-debian:trixie
+# Base image updated by Renovate, update versionCompatibility on Debian base bump
+ARG BUILD_FROM=ghcr.io/home-assistant/base-debian:trixie-2026.10.3@sha256:a9fb29d0ffab1a81d6379e6252db21e0edbd1263c94d9de2cfc54a396aad8611
 FROM ${BUILD_FROM}
 ARG TARGETARCH
 
@@ -6,10 +7,9 @@ ARG TARGETARCH
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install speech-to-phrase
-ARG \
-    SPEECH_TO_PHRASE_VERSION=1.4.3 \
-    ONNXRUNTIME_VERSION=1.29.0 \
-    PYSILERO_VAD_VERSION=2.1.1
+ARG SPEECH_TO_PHRASE_VERSION=1.4.3
+ARG ONNXRUNTIME_VERSION=1.29.0
+ARG PYSILERO_VAD_VERSION=2.1.1
 WORKDIR /usr/src
 
 RUN mkdir -p ./tools
