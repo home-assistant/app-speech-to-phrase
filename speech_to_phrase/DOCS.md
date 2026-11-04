@@ -29,27 +29,27 @@ See [available voice commands](https://github.com/OHF-Voice/speech-to-phrase/blo
 
 You can add [custom sentences][] to `/share/speech-to-phrase/custom_sentences/<language>/sentences.yaml` where `<language>` is:
 
-* `ca` - Catalan
-* `cs` - Czech
-* `de` - German
-* `el` - Greek
-* `en` - English
-* `es` - Spanish
-* `eu` - Basque
-* `fa` - Persian/Farsi
-* `fi` - Finnish
-* `fr` - French
-* `hi` - Hindi
-* `it` - Italian
-* `mn` - Mongolian
-* `nl` - Dutch
-* `pl` - Polish
-* `pt_PT` - Portuguese
-* `ro` - Romanian
-* `ru` - Russian
-* `sl` - Slovenian
-* `sw` - Swahili
-* `tr` - Turkish
+- `ca` - Catalan
+- `cs` - Czech
+- `de` - German
+- `el` - Greek
+- `en` - English
+- `es` - Spanish
+- `eu` - Basque
+- `fa` - Persian/Farsi
+- `fi` - Finnish
+- `fr` - French
+- `hi` - Hindi
+- `it` - Italian
+- `mn` - Mongolian
+- `nl` - Dutch
+- `pl` - Polish
+- `pt_PT` - Portuguese
+- `ro` - Romanian
+- `ru` - Russian
+- `sl` - Slovenian
+- `sw` - Swahili
+- `tr` - Turkish
 
 ## Support
 
@@ -65,10 +65,9 @@ In case you've found an bug, please [open an issue on our GitHub][issue].
 
 [discord]: https://www.home-assistant.io/join-chat
 [forum]: https://community.home-assistant.io
-[issue]: https://github.com/home-assistant/addons/issues
+[issue]: https://github.com/home-assistant/app-speech-to-phrase/issues
 [reddit]: https://reddit.com/r/homeassistant
 [repository]: https://github.com/hassio-addons/repository
-
 [sentence trigger]: https://www.home-assistant.io/docs/automation/trigger/#sentence-trigger
 [exposed]: https://www.home-assistant.io/voice_control/voice_remote_expose_devices/
 [custom sentences]: https://github.com/OHF-voice/speech-to-phrase?tab=readme-ov-file#custom-sentences

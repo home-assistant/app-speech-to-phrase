@@ -1,15 +1,15 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/home-assistant/base-debian:trixie
 FROM ${BUILD_FROM}
-ARG BUILD_ARCH
+ARG TARGETARCH
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install speech-to-phrase
 ARG \
-    SPEECH_TO_PHRASE_VERSION \
-    ONNXRUNTIME_VERSION \
-    PYSILERO_VAD_VERSION
+    SPEECH_TO_PHRASE_VERSION=1.4.3 \
+    ONNXRUNTIME_VERSION=1.29.0 \
+    PYSILERO_VAD_VERSION=2.1.1
 WORKDIR /usr/src
 
 RUN mkdir -p ./tools
@@ -26,10 +26,8 @@ RUN \
         curl \
         libopenblas0 \
         libencode-perl \
-    && ARCH="${BUILD_ARCH}" \
-    && if [[ "${BUILD_ARCH}" = "aarch64" ]]; then ARCH="arm64"; fi \
     && curl --location --output - \
-        "https://huggingface.co/datasets/rhasspy/rhasspy-speech/resolve/main/tools/rhasspy-speech_${ARCH}.tar.gz?download=true" | \
+        "https://huggingface.co/datasets/rhasspy/rhasspy-speech/resolve/main/tools/rhasspy-speech_${TARGETARCH}.tar.gz?download=true" | \
         tar -C ./tools -xzf - \
     && python3 -m venv .venv \
     && .venv/bin/pip3 install --no-cache-dir \
@@ -51,3 +49,9 @@ HEALTHCHECK --start-period=10m --start-interval=5s --interval=30s \
         | nc -w 1 localhost 10300 \
         | grep -iq "speech-to-phrase" \
         || exit 1
+
+LABEL \
+    org.opencontainers.image.title="Home Assistant App: Speech-to-Phrase" \
+    org.opencontainers.image.description="Fast and personalized local speech-to-text" \
+    org.opencontainers.image.source="https://github.com/home-assistant/app-speech-to-phrase" \
+    org.opencontainers.image.licenses="Apache License 2.0"
