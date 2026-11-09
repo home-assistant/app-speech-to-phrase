@@ -8,7 +8,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install speech-to-phrase
 ARG SPEECH_TO_PHRASE_VERSION=1.4.3
-ARG ONNXRUNTIME_VERSION=1.29.0
+ARG ONNXRUNTIME_VERSION=1.31.1
 ARG PYSILERO_VAD_VERSION=2.1.1
 WORKDIR /usr/src
 
